@@ -1,10 +1,12 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import Logo from '../components/Logo'
+import LogoImg from "../assets/img/argentBankLogo.png"
 
 function Menu() {
+  
   const logoData = {
-    src: Logo,
+    src: LogoImg,
     className: "main-nav-logo-image",
     alt: "Argent Bank Logo",
   }
