@@ -18,7 +18,7 @@ function Menu() {
     </NavLink>
     <div>
       <NavLink to="/sign-in" className="main-nav-item">
-      <i class="fa fa-user-circle"></i>
+      <i className="fa fa-user-circle"></i>
       {" Sign In"}
       </NavLink>
     </div>

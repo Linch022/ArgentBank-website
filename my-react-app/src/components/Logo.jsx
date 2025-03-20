@@ -1,6 +1,6 @@
 import { PropTypes } from 'prop-types';
 
-function Logo({logoData}) {
+function Logo({ logoData }) {
   return (
     <img
     src={logoData.src}
