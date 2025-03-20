@@ -1,13 +1,20 @@
-import logo from "../assets/img/argentBankLogo.png"
+import PropTypes from 'prop-types';
 
-function Logo() {
+function Logo({logoData}) {
   return (
     <img
-    className="main-nav-logo-image"
-    src={logo}
-    alt="Argent Bank Logo"
+    src={logoData.src}
+    className={logoData.className}
+    alt={logoData.alt}
   />
   )
 }
 
+Logo.propTypes = {
+  logoData: PropTypes.shape({
+    src: PropTypes.string,
+    className: PropTypes.string,
+    alt: PropTypes.string,
+  })
+}
 export default Logo
