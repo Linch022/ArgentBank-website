@@ -23,7 +23,7 @@ function Menu() {
       </NavLink>
     </div>
   </nav>
-  )
-}
+  );
+};
 
 export default Menu

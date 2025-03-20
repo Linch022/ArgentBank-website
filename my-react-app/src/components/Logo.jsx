@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+import { PropTypes } from 'prop-types';
 
 function Logo({logoData}) {
   return (
@@ -16,5 +16,5 @@ Logo.propTypes = {
     className: PropTypes.string,
     alt: PropTypes.string,
   })
-}
+};
 export default Logo
