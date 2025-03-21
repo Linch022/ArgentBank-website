@@ -1,7 +1,7 @@
 
 import PropTypes from 'prop-types';
 import { BUTTON_TYPES } from './../helpers/buttonsTypes';
-function Button({ type, onClick, title, disabled, className, children}) {
+function Button({ type, onClick, disabled, className, children}) {
 
     switch (type) {
         case BUTTON_TYPES.DEFAULT:
@@ -11,7 +11,6 @@ function Button({ type, onClick, title, disabled, className, children}) {
                 disabled={disabled}
                 className={className}
                 onClick={onClick}
-                title={title}
                 >
                     {children}
                 </button>
@@ -24,7 +23,6 @@ function Button({ type, onClick, title, disabled, className, children}) {
                 disabled={disabled}
                 value={children}
                 onClick={onClick}
-                title={title}
                 />
             )
         default:
@@ -34,7 +32,6 @@ function Button({ type, onClick, title, disabled, className, children}) {
                 disabled={disabled}
                 className={className}
                 onClick={onClick}
-                title={title}
                 >
                     {children}
                 </button>
@@ -43,7 +40,6 @@ function Button({ type, onClick, title, disabled, className, children}) {
 };
 
 Button.propTypes = {
-    title: PropTypes.string,
     className: PropTypes.string,
     onClick: PropTypes.func,
     type: PropTypes.number,
@@ -54,7 +50,6 @@ Button.defaultProps = {
     disabled: false,
     onClick: () => null,
     type: BUTTON_TYPES.DEFAULT,
-    title: "",
     className: "",
     children: null
 };

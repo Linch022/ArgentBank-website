@@ -1,7 +1,7 @@
 import { PropTypes } from 'prop-types';
 import { FIELD_TYPES } from '../helpers/fieldTypes';
 
-function Field({ type = FIELD_TYPES.INPUT_TEXT, label, name, id, className, placeholder, required }) {
+function Field({ type, label, name, id, className, placeholder, required }) {
 
       let component;
       switch (type) {
@@ -50,7 +50,7 @@ function Field({ type = FIELD_TYPES.INPUT_TEXT, label, name, id, className, plac
 
       return (
         <div className={className}>
-          <label for={id}>{label}</label>
+          <label htmlFor={id}>{label}</label>
           {component}
         </div>
       );
