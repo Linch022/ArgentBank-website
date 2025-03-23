@@ -8,7 +8,30 @@ import { useNavigate } from 'react-router-dom';
 
 function SignIn() {
   const navigate = useNavigate();
-  const postURL = `${import.meta.env.VITE_DATABASE_URL}/user/login`;
+
+  const fetchUser = async () => {
+    const token = localStorage.getItem("token");
+
+    try {
+      const response = await fetch(`${import.meta.env.VITE_DATABASE_URL}/user/profile`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}`
+        },
+        body: JSON.stringify({token: token}),
+      });
+      if (!response.ok) {
+        throw new Error("Erreur lors de la récupération du profil");
+      }
+
+      const data = await response.json();
+      console.log(data);
+      return data      
+    } catch (error) {
+      console.error(error.message)
+    }
+  }
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -18,7 +41,7 @@ function SignIn() {
     };
 
     try {
-      const response = await fetch(postURL, {
+      const response = await fetch(`${import.meta.env.VITE_DATABASE_URL}/user/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -30,7 +53,10 @@ function SignIn() {
       }
 
       const data = await response.json();
+      console.log(data);
+      
       localStorage.setItem("token", data.body.token);
+      fetchUser()
       navigate("/user");
     } catch (error) {
       console.error("Erreur de connexion :", error.message);
