@@ -1,9 +1,9 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import User from "./pages/User";
-import SignIn from "./pages/SignIn";
-import Menu from "./containers/Menu";
-import Footer from "./containers/Footer";
+import Home from "./pages/home/Home";
+import User from "./pages/user/User";
+import SignIn from "./pages/signIn/SignIn";
+import Menu from "./containers/menu/Menu";
+import Footer from "./containers/footer/Footer";
 
 function App() {
     return (

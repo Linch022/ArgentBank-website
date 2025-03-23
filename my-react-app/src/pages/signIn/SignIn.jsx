@@ -1,9 +1,9 @@
 import React from 'react'
-import Form from '../containers/Form'
-import Button from "../components/Button";
-import Field from "../components/Field";
-import { BUTTON_TYPES } from "../helpers/buttonsTypes";
-import { FIELD_TYPES } from '../helpers/fieldTypes';
+import Form from '../../containers/form/Form'
+import Button from "../../components/button/Button";
+import Field from "../../components/field/Field";
+import { BUTTON_TYPES } from "../../helpers/buttonsTypes";
+import { FIELD_TYPES } from '../../helpers/fieldTypes';
 import { useNavigate } from 'react-router-dom';
 
 function SignIn() {

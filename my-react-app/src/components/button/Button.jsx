@@ -1,6 +1,7 @@
 
 import PropTypes from 'prop-types';
-import { BUTTON_TYPES } from './../helpers/buttonsTypes';
+import { BUTTON_TYPES } from '../../helpers/buttonsTypes';
+
 function Button({ type, onClick, disabled, className, children}) {
 
     switch (type) {
