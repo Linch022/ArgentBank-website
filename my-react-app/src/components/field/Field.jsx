@@ -1,5 +1,5 @@
 import { PropTypes } from 'prop-types';
-import { FIELD_TYPES } from '../helpers/fieldTypes';
+import { FIELD_TYPES } from '../../helpers/fieldTypes';
 
 function Field({ type, label, name, id, className, placeholder, required }) {
 

@@ -1,12 +1,12 @@
-import Hero from '../components/hero/Hero';
-import HeroContent from '../components/heroContent/HeroContent';
-import FeatureItem from '../containers/featureItem/FeatureItem';
-import Logo from '../components/logo/Logo';
-import FeatureContent from '../components/featurecontent/FeatureContent';
-import heroImg from '../assets/img/bank-tree.jpeg';
-import iconChat from '../assets/img/icon-chat.png';
-import iconMoney from '../assets/img/icon-money.png';
-import iconSecurity from '../assets/img/icon-security.png';
+import Hero from '../../components/hero/Hero';
+import HeroContent from '../../components/heroContent/HeroContent';
+import FeatureItem from '../../containers/featureItem/FeatureItem';
+import Logo from '../../components/logo/Logo';
+import FeatureContent from '../../components/featurecontent/FeatureContent';
+import heroImg from '../../assets/img/bank-tree.jpeg';
+import iconChat from '../../assets/img/icon-chat.png';
+import iconMoney from '../../assets/img/icon-money.png';
+import iconSecurity from '../../assets/img/icon-security.png';
 
 function Home() {
   const featuresData = [

@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import Logo from '../components/logo/Logo'
-import LogoImg from "../assets/img/argentBankLogo.png"
+import Logo from '../../components/logo/Logo'
+import LogoImg from "../../assets/img/argentBankLogo.png"
 
 function Menu() {
   
