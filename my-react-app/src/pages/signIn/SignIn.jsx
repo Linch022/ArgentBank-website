@@ -1,40 +1,45 @@
-import React from 'react'
+import { useDispatch } from 'react-redux';
+import { useGetUserMutation } from '../../redux/services/userDataApi';
+import { setUser } from '../../redux/slices/userDataSlice';
+import { useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import Form from '../../containers/form/Form'
 import Button from "../../components/button/Button";
 import Field from "../../components/field/Field";
 import { BUTTON_TYPES } from "../../helpers/buttonsTypes";
 import { FIELD_TYPES } from '../../helpers/fieldTypes';
-import { useNavigate } from 'react-router-dom';
 
 function SignIn() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const [getUserData, { data }] = useGetUserMutation();
+  const [token, setToken] = useState(null);
 
-  const fetchUser = async () => {
-    const token = localStorage.getItem("token");
-
-    try {
-      const response = await fetch(`${import.meta.env.VITE_DATABASE_URL}/user/profile`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Authorization": `Bearer ${token}`
-        },
-        body: JSON.stringify({token: token}),
-      });
-      if (!response.ok) {
-        throw new Error("Erreur lors de la récupération du profil");
-      }
-
-      const data = await response.json();
-      console.log(data);
-      return data      
-    } catch (error) {
-      console.error(error.message)
+  useEffect(() => {
+    if (token) {
+      localStorage.setItem("token", token)
+      getUserData();
     }
-  }
+  }, [token, getUserData]);
+
+  useEffect (() => {
+    if (data) {
+      const filteredUser = {
+        firstName: data.body.firstName,
+        lastName: data.body.lastName,
+        id: data.body.id,
+        userName: data.body.userName,
+        email: data.body.email
+      };
+      dispatch(setUser(filteredUser));
+      navigate('/user')
+    }
+  }, [data, dispatch, navigate])
 
   const onSubmit = async (e) => {
+    
     e.preventDefault();
+    console.log("toto");
     const logs = {
       email: e.target.username.value,
       password: e.target.password.value,
@@ -50,18 +55,13 @@ function SignIn() {
       });
       if(!response.ok) {
         throw new Error("Identifiants incorrects");
+      } else {
+          const data = await response.json();          
+          setToken(data.body.token);
       }
-
-      const data = await response.json();
-      console.log(data);
-      
-      localStorage.setItem("token", data.body.token);
-      fetchUser()
-      navigate("/user");
     } catch (error) {
       console.error("Erreur de connexion :", error.message);
     };
-    
   };
   
   return (
