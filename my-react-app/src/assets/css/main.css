@@ -178,6 +178,9 @@ body {
   padding: 2rem;
 }
 
+.login-error {
+  margin-bottom: 0;
+}
 /* .sign-in-icon {
   font-size: 5rem;
 } */

@@ -14,6 +14,7 @@ function SignIn() {
   const dispatch = useDispatch();
   const [getUserData, { data }] = useGetUserMutation();
   const [token, setToken] = useState(null);
+  const [loginError, setLoginError] = useState(false);
 
   useEffect(() => {
     if (token) {
@@ -54,6 +55,7 @@ function SignIn() {
         body: JSON.stringify(logs),
       });
       if(!response.ok) {
+        setLoginError(true);
         throw new Error("Identifiants incorrects");
       } else {
           const data = await response.json();          
@@ -74,6 +76,7 @@ function SignIn() {
         <Field type={FIELD_TYPES.INPUT_PASSWORD} label="Password" id="password" name="password" className="input-wrapper" required/>
         <Field type={FIELD_TYPES.INPUT_CHECKBOX} label="Remember me" id="remember-me" name="remember-me" className="input-remember"/>
         <Button type={BUTTON_TYPES.SUBMIT} className="sign-in-button" children="Sign In"/>
+        {loginError ? <p className="login-error">Identifiant ou mot de passe érroné.</p> : null}
       </Form>
       </section>
     </main>
