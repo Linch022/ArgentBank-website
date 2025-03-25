@@ -4,6 +4,7 @@ import User from "../pages/userPage/UserPage";
 import SignIn from "../pages/signIn/SignIn";
 import Menu from "../containers/menu/Menu";
 import Footer from "../containers/footer/Footer";
+import ProtectedRoute from "../utils/ProtectedRoute";
 
 function App() {
     return (
@@ -12,7 +13,9 @@ function App() {
             <Routes>
                 <Route path="/" element={<Home />}/>
                 <Route path="/sign-in" element={<SignIn />} />
-                <Route path="/user" element={<User />} />
+                <Route element={<ProtectedRoute />}>
+                    <Route path="/user" element={<User />} />
+                </Route>
             </Routes>
             <Footer />
         </Router>

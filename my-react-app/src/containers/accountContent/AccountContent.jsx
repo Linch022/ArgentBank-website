@@ -1,6 +1,6 @@
 import React from 'react'
-import Button from '../components/button/Button'
-import { BUTTON_TYPES } from '../helpers/buttonsTypes'
+import Button from '../../components/button/Button'
+import { BUTTON_TYPES } from '../../helpers/buttonsTypes'
 
 function AccountContent({ accountData }) {
   return (

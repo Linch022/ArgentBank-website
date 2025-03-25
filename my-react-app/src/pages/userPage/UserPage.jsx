@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux'
 import Button from '../../components/button/Button';
 import { BUTTON_TYPES } from '../../helpers/buttonsTypes';
-import AccountContent from '../../containers/AccountContent';
+import AccountContent from '../../containers/accountContent/AccountContent';
 
 function UserPage() {
   const user = useSelector((state) => state.auth.user);
