@@ -8,11 +8,8 @@ import { setUser } from '../../redux/slices/userDataSlice'
 function Menu() {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.auth.user);
-  console.log(user);
   
-  const logOut = () => {
-    console.log("toto");
-    
+  const logOut = () => {    
     dispatch(setUser(null));
     localStorage.removeItem("token");
   }
@@ -33,7 +30,7 @@ function Menu() {
       <>
         <NavLink to="/user" className="main-nav-item">
           <i className="fa fa-user-circle"></i>
-          {` ${user?.firstName}`}
+          {` ${user?.firstName} `}
         </NavLink>
         <NavLink to="/" className="main-nav-item" onClick={() => logOut()}>
         <i className="fa fa-sign-out"></i>

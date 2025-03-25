@@ -24,5 +24,4 @@ export const userDataApi = createApi({
 });
 
 export const { useGetUserMutation } = userDataApi;
-console.log(useGetUserMutation);
 
