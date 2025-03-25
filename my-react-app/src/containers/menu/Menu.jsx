@@ -3,16 +3,11 @@ import { NavLink } from 'react-router-dom'
 import Logo from '../../components/logo/Logo'
 import LogoImg from "../../assets/img/argentBankLogo.png"
 import { useDispatch, useSelector } from 'react-redux'
-import { setUser } from '../../redux/slices/userDataSlice'
+import { logout } from '../../redux/slices/userDataSlice'
 
 function Menu() {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.auth.user);
-  
-  const logOut = () => {    
-    dispatch(setUser(null));
-    localStorage.removeItem("token");
-  }
   
   const logoData = {
     src: LogoImg,
@@ -32,7 +27,7 @@ function Menu() {
           <i className="fa fa-user-circle"></i>
           {` ${user?.firstName} `}
         </NavLink>
-        <NavLink to="/" className="main-nav-item" onClick={() => logOut()}>
+        <NavLink to="/" className="main-nav-item" onClick={() => dispatch((logout()))}>
         <i className="fa fa-sign-out"></i>
           {" Sign Out"}
         </NavLink>

@@ -3,7 +3,6 @@ import Button from '../../components/button/Button';
 import { BUTTON_TYPES } from '../../helpers/buttonsTypes';
 import AccountContent from '../../containers/AccountContent';
 
-
 function UserPage() {
   const user = useSelector((state) => state.auth.user);
   const accountInfos = [
@@ -27,13 +26,10 @@ function UserPage() {
     },
   ];
 
-
-  console.log(user);
-  
   return (
     <main className='main bg-dark'>
       <div className='header'>
-        <h1> Welcome back <br />{user.firstName} {user.lastName}!</h1>
+        <h1> Welcome back <br />{user?.firstName} {user?.lastName}!</h1>
         <Button type={BUTTON_TYPES.DEFAULT} className="edit-button" onClick={()=> null}>Edit Name</Button>
       </div>
       <h2 className='sr-only'>Accounts</h2>
