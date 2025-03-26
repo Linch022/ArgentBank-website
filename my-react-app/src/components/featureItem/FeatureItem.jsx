@@ -14,6 +14,14 @@ function FeatureItem({ feature }) {
 	);
 }
 FeatureItem.propTypes = {
-	children: PropTypes.node.isRequired,
+	feature: PropTypes.shape({
+		icon: PropTypes.shape({
+			src: PropTypes.string.isRequired,
+			className: PropTypes.string,
+			alt: PropTypes.string,
+		}).isRequired,
+		title: PropTypes.string.isRequired,
+		text: PropTypes.string.isRequired,
+	}).isRequired,
 };
 export default FeatureItem;
