@@ -12,9 +12,9 @@ function Logo({ logoData }) {
 
 Logo.propTypes = {
 	logoData: PropTypes.shape({
-		src: PropTypes.string,
+		src: PropTypes.string.isRequired,
 		className: PropTypes.string,
 		alt: PropTypes.string,
-	}),
+	}).isRequired,
 };
 export default Logo;
