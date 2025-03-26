@@ -24,7 +24,12 @@ function Hero({ content }) {
 }
 
 Hero.PropTypes = {
-	backgroundImage: PropTypes.string,
-	children: PropTypes.node,
+	content: PropTypes.shape({
+		className: PropTypes.string.isRequired,
+		title: PropTypes.string,
+		srOnlyTitle: PropTypes.bool,
+		subtitles: PropTypes.arrayOf(PropTypes.string),
+		text: PropTypes.string,
+	}).isRequired,
 };
 export default Hero;
