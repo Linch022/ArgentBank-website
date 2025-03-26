@@ -7,10 +7,13 @@ import Form from '../../containers/form/Form';
 import Field from '../../components/field/Field';
 import { FIELD_TYPES } from '../../helpers/fieldTypes';
 import { editUserName } from '../../redux/slices/userDataSlice';
+import { useEditUserProfileMutation } from '../../redux/services/userDataApi';
+import { useEffect } from 'react';
 
 function UserPage() {
   const user = useSelector((state) => state.auth.user);
   const dispatch = useDispatch();
+  const [editUserProfile, { data }] = useEditUserProfileMutation();
   const [openModale, setOpenModale] = useState(false);
   const [onSuccess, setOnSuccess] = useState(false);
   const accountInfos = [
@@ -34,32 +37,18 @@ function UserPage() {
     },
   ];
 
+  useEffect(() => {
+    if(data) {
+      dispatch(editUserName(data.body.userName));
+      setOpenModale(false);
+      onSuccessEdit();
+    }
+  }, [data, dispatch])
+
   const onSubmit = async (e) => {
     e.preventDefault();
-    const token = localStorage.getItem("token");
     const userName = e.target.username.value;
-    console.log(userName);
-    
-    try {
-      const response = await fetch(`${import.meta.env.VITE_DATABASE_URL}/user/profile`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-          "Authorization": `Bearer ${token}`,
-        },
-        body: JSON.stringify({ userName }),
-      });
-      if(!response.ok) {
-        throw new Error("Une erreur est survenue");
-      } else {
-        const data = await response.json();
-        dispatch(editUserName(data.body.userName));
-        setOpenModale(false);
-        onSuccessEdit();
-      }
-    } catch (error) {
-      console.error("Erreur :", error.message)
-    };
+    editUserProfile({userName});
   };
 
   const onSuccessEdit = () => {

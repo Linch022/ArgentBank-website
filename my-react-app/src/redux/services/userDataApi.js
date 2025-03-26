@@ -20,8 +20,16 @@ export const userDataApi = createApi({
                 headers: {"Content-type": "application/json"},
             }),
         }),
+        editUserProfile: builder.mutation({
+            query: (body) => ({
+                url: '/user/profile',
+                method: 'PUT',
+                headers: {"Content-type": "application/json"},
+                body: JSON.stringify(body),
+            })
+        })
     }),
 });
 
-export const { useGetUserMutation } = userDataApi;
+export const { useGetUserMutation, useEditUserProfileMutation } = userDataApi;
 
