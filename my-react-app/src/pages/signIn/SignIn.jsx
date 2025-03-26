@@ -38,9 +38,7 @@ function SignIn() {
   }, [data, dispatch, navigate])
 
   const onSubmit = async (e) => {
-    
     e.preventDefault();
-    console.log("toto");
     const logs = {
       email: e.target.username.value,
       password: e.target.password.value,
@@ -72,7 +70,7 @@ function SignIn() {
       <i className="fa fa-user-circle sign-in-icon"></i>
       <h2>Sign In</h2>
       <Form onSubmit={(e) => onSubmit(e)}>
-        <Field label="Username" id="username" name="username" className="input-wrapper" required/>
+        <Field type={FIELD_TYPES.INPUT_TEXT} label="Username" id="username" name="username" className="input-wrapper" required/>
         <Field type={FIELD_TYPES.INPUT_PASSWORD} label="Password" id="password" name="password" className="input-wrapper" required/>
         <Field type={FIELD_TYPES.INPUT_CHECKBOX} label="Remember me" id="remember-me" name="remember-me" className="input-remember"/>
         <Button type={BUTTON_TYPES.SUBMIT} className="sign-in-button" children="Sign In"/>

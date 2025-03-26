@@ -1,7 +1,7 @@
 import { PropTypes } from 'prop-types';
 import { FIELD_TYPES } from '../../helpers/fieldTypes';
 
-function Field({ type, label, name, id, className, placeholder, required }) {
+function Field({ type, label, name, id, className, placeholder, required, disabled }) {
 
       let component;
       switch (type) {
@@ -13,6 +13,7 @@ function Field({ type, label, name, id, className, placeholder, required }) {
               required={required}
               name={name}
               id={id}
+              disabled={disabled}
             />
           );
           break;
@@ -23,6 +24,7 @@ function Field({ type, label, name, id, className, placeholder, required }) {
                 id={id}
                 name={name}
                 required={required}
+                disabled={disabled}
                 />
             );
             break;
@@ -33,6 +35,7 @@ function Field({ type, label, name, id, className, placeholder, required }) {
                 id={id}
                 name={name}
                 required={required}
+                disabled={disabled}
                 />
               );
               break;
@@ -44,6 +47,7 @@ function Field({ type, label, name, id, className, placeholder, required }) {
               id={id}
               placeholder={placeholder}
               required={required}
+              disabled={disabled}
             />
           );
       }
