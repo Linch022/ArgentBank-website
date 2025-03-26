@@ -131,10 +131,10 @@ function UserPage() {
 				)}
 			</div>
 			<h2 className='sr-only'>Accounts</h2>
-			{accountInfos.map((i) => (
+			{accountInfos.map((item) => (
 				<AccountContent
-					accountData={i}
-					key={i.id}
+					accountData={item}
+					key={item.id}
 				/>
 			))}
 		</main>

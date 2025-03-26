@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "../../components/button/Button";
 import { BUTTON_TYPES } from "../../utils/buttonsTypes";
+import PropTypes from "prop-types";
 
 function AccountContent({ accountData }) {
 	return (
@@ -22,5 +23,11 @@ function AccountContent({ accountData }) {
 		</section>
 	);
 }
-
+AccountContent.PropTypes = {
+	accountData: PropTypes.shape({
+		type: PropTypes.string.isRequired,
+		amount: PropTypes.string.isRequired,
+		amountdesc: PropTypes.string.isRequired,
+	}).isRequired,
+};
 export default AccountContent;
