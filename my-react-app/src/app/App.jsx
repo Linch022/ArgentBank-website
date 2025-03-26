@@ -7,18 +7,27 @@ import Footer from "../containers/footer/Footer";
 import ProtectedRoute from "../utils/ProtectedRoute";
 
 function App() {
-    return (
-        <Router>
-            <Menu />
-            <Routes>
-                <Route path="/" element={<Home />}/>
-                <Route path="/sign-in" element={<SignIn />} />
-                <Route element={<ProtectedRoute />}>
-                    <Route path="/user" element={<User />} />
-                </Route>
-            </Routes>
-            <Footer />
-        </Router>
-    );
-};
+	return (
+		<Router>
+			<Menu />
+			<Routes>
+				<Route
+					path='/'
+					element={<Home />}
+				/>
+				<Route
+					path='/sign-in'
+					element={<SignIn />}
+				/>
+				<Route element={<ProtectedRoute />}>
+					<Route
+						path='/user'
+						element={<User />}
+					/>
+				</Route>
+			</Routes>
+			<Footer />
+		</Router>
+	);
+}
 export default App;
