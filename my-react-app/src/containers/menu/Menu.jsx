@@ -25,7 +25,7 @@ function Menu() {
       <>
         <NavLink to="/user" className="main-nav-item">
           <i className="fa fa-user-circle"></i>
-          {` ${user?.firstName} `}
+          {` ${user?.userName} `}
         </NavLink>
         <NavLink to="/" className="main-nav-item" onClick={() => dispatch((logout()))}>
         <i className="fa fa-sign-out"></i>

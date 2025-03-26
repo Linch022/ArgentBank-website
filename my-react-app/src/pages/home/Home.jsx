@@ -44,12 +44,14 @@ function Home() {
       <Hero backgroundImage={heroImg}>
         <HeroContent title="Promoted Content" srOnlyTitle subtitles={["No fees.", "No minimum deposit.", "High interest rates."]} text="Open a savings account with Argent Bank today!"/>
       </Hero>
+      <section className="features">
       {featuresData.map((feature, index) => (
         <FeatureItem key={index}>
           <Logo logoData={feature.icon}/>
           <FeatureContent title={feature.title} text={feature.text} />
         </FeatureItem>
       ))}
+      </section>
     </main>
   );
 };

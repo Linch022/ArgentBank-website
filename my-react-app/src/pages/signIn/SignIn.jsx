@@ -18,7 +18,7 @@ function SignIn() {
 
   useEffect(() => {
     if (token) {
-      localStorage.setItem("token", token)
+      localStorage.setItem("token", token);
       getUserData();
     }
   }, [token, getUserData]);
@@ -33,9 +33,9 @@ function SignIn() {
         email: data.body.email
       };
       dispatch(setUser(filteredUser));
-      navigate('/user')
+      navigate('/user');
     }
-  }, [data, dispatch, navigate])
+  }, [data, dispatch, navigate]);
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -54,6 +54,7 @@ function SignIn() {
       });
       if(!response.ok) {
         setLoginError(true);
+        console.log(response)
         throw new Error("Identifiants incorrects");
       } else {
           const data = await response.json();          

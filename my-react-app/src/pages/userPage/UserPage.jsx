@@ -36,7 +36,8 @@ function UserPage() {
       amountDesc: "Current Balance",
     },
   ];
-
+  console.log(user);
+  
   useEffect(() => {
     if(data) {
       dispatch(editUserName(data.body.userName));
