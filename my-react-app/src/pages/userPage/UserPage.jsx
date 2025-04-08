@@ -72,7 +72,7 @@ function UserPage() {
 								id='username'
 								name='username'
 								className='input-wrapper'
-								placeholder={user.userName}
+								value={user.userName}
 								required
 							/>
 							<Field
@@ -80,7 +80,7 @@ function UserPage() {
 								label='First name'
 								id='firstname'
 								name='firstname'
-								placeholder={user.firstName}
+								value={user.firstName}
 								className='input-wrapper'
 								disabled
 							/>
@@ -89,7 +89,7 @@ function UserPage() {
 								label='Last name'
 								id='lastname'
 								name='lastname'
-								placeholder={user.lastName}
+								value={user.lastName}
 								className='input-wrapper'
 								disabled
 							/>

@@ -10,6 +10,7 @@ function Field({
 	placeholder,
 	required,
 	disabled,
+	value,
 }) {
 	let component;
 	switch (type) {
@@ -22,6 +23,7 @@ function Field({
 					name={name}
 					id={id}
 					disabled={disabled}
+					value={value}
 				/>
 			);
 			break;
@@ -56,6 +58,7 @@ function Field({
 					placeholder={placeholder}
 					required={required}
 					disabled={disabled}
+					value={value}
 				/>
 			);
 	}
@@ -76,6 +79,7 @@ Field.PropTypes = {
 	className: PropTypes.string,
 	id: PropTypes.string,
 	required: PropTypes.bool,
+	value: PropTypes.string,
 };
 Field.defaultProps = {
 	label: "",
@@ -85,5 +89,6 @@ Field.defaultProps = {
 	required: false,
 	className: "",
 	id: "",
+	value: "",
 };
 export default Field;
