@@ -3,7 +3,7 @@ import { Navigate, Outlet } from "react-router-dom";
 
 function ProtectedRoute() {
 	const user = useSelector((state) => state.auth.user);
-	const token = localStorage.getItem("token");
+	const token = sessionStorage.getItem("token");
 
 	const authUser = user && token;
 	if (authUser) {

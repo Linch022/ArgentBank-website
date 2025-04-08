@@ -13,7 +13,7 @@ const userDataSlice = createSlice({
 		},
 		logout: (state) => {
 			state.user = null;
-			localStorage.removeItem("token");
+			sessionStorage.removeItem("token");
 		},
 		editUserName: (state, action) => {
 			if (state.user) {

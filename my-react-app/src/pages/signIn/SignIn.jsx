@@ -18,7 +18,7 @@ function SignIn() {
 
 	useEffect(() => {
 		if (token) {
-			localStorage.setItem("token", token);
+			sessionStorage.setItem("token", token);
 			getUserData();
 		}
 	}, [token, getUserData]);

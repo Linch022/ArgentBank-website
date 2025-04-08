@@ -6,7 +6,7 @@ export const userDataApi = createApi({
 		baseUrl: import.meta.env.VITE_DATABASE_URL,
 
 		prepareHeaders: (headers) => {
-			const token = localStorage.getItem("token");
+			const token = sessionStorage.getItem("token");
 			if (token) {
 				headers.set("Authorization", `Bearer ${token}`);
 			}
