@@ -11,7 +11,7 @@ function ProtectedRoute() {
 	} else
 		return (
 			<Navigate
-				to='/sign-in'
+				to='/'
 				replace
 			/>
 		);

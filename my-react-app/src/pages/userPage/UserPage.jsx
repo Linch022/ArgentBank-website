@@ -36,7 +36,6 @@ function UserPage() {
 			amountDesc: "Current Balance",
 		},
 	];
-	console.log(user);
 
 	useEffect(() => {
 		if (data) {

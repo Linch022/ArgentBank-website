@@ -25,12 +25,11 @@ function SignIn() {
 
 	useEffect(() => {
 		if (data) {
+			const { firstName, lastName, userName } = data.body;
 			const filteredUser = {
-				firstName: data.body.firstName,
-				lastName: data.body.lastName,
-				id: data.body.id,
-				userName: data.body.userName,
-				email: data.body.email,
+				firstName,
+				lastName,
+				userName,
 			};
 			dispatch(setUser(filteredUser));
 			navigate("/user");
@@ -57,7 +56,6 @@ function SignIn() {
 			);
 			if (!response.ok) {
 				setLoginError(true);
-				console.log(response);
 				throw new Error("Identifiants incorrects");
 			} else {
 				const data = await response.json();
