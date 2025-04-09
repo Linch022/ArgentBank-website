@@ -83,7 +83,7 @@ body {
 .hero-home {
 	background-image: url("../img/bank-tree.jpeg");
 }
-@media (min-width: 920px) {
+@media (max-width: 920px) {
 	.hero-home {
 		background-image: url("../img/bank-tree-mobile.jpeg");
 	}
